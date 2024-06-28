@@ -39,28 +39,30 @@ const CountryList: React.FC = () => {
     );
 
     return (
-        <div className="container mx-auto p-4">
-            <h1 className="text-2xl font-bold mb-4">좋아하는 나라</h1>
-            <div className="grid grid-cols-5 gap-4">
-                {selectedCountries.map((country: Country) => (
-                    <CountryCard
-                        key={country.name.common}
-                        country={country}
-                        isActive={true}
-                        onClick={handleSelectCountry}
-                    />
-                ))}
-            </div>
-            <h1 className="text-2xl font-bold mt-8 mb-4">모든 나라</h1>
-            <div className="grid grid-cols-5 gap-4">
-                {remainingCountries.map((country: Country) => (
-                    <CountryCard
-                        key={country.name.common}
-                        country={country}
-                        isActive={false}
-                        onClick={handleSelectCountry}
-                    />
-                ))}
+        <div className="bg-gray-100 min-h-screen p-4">
+            <div className="w-full mx-auto">
+                <h1 className="text-black text-4xl font-bold mb-4 text-center">좋아하는 나라</h1>
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+                    {selectedCountries.map((country: Country) => (
+                        <CountryCard
+                            key={country.name.common}
+                            country={country}
+                            isActive={true}
+                            onClick={handleSelectCountry}
+                        />
+                    ))}
+                </div>
+                <h1 className="text-gray-700 text-4xl font-bold mt-8 mb-4 text-center">모든 나라</h1>
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+                    {remainingCountries.map((country: Country) => (
+                        <CountryCard
+                            key={country.name.common}
+                            country={country}
+                            isActive={false}
+                            onClick={handleSelectCountry}
+                        />
+                    ))}
+                </div>
             </div>
         </div>
     );
